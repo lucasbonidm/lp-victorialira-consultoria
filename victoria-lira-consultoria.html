@@ -1,0 +1,1258 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consultoria Nutricional — Victória Lira</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --olive: #666e3c;
+        --olive-light: #8a9350;
+        --olive-pale: #eef0e4;
+        --olive-ultra: #f7f8f3;
+        --olive-dark: #4a5029;
+        --cream: #fafaf6;
+        --warm-white: #ffffff;
+        --text-dark: #2c2e1e;
+        --text-mid: #5a5e42;
+        --text-muted: #8a8f72;
+        --border: rgba(102, 110, 60, 0.15);
+        --border-strong: rgba(102, 110, 60, 0.3);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        font-weight: 400;
+        background: var(--cream);
+        color: var(--text-dark);
+        line-height: 1.7;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        min-height: 96vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 5rem 2rem 5rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse 60% 50% at 50% -10%,
+            rgba(102, 110, 60, 0.1) 0%,
+            transparent 70%
+          ),
+          radial-gradient(
+            ellipse 40% 40% at 80% 80%,
+            rgba(102, 110, 60, 0.06) 0%,
+            transparent 60%
+          );
+        pointer-events: none;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--olive-pale);
+        color: var(--olive-dark);
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 6px 16px;
+        border-radius: 100px;
+        border: 1px solid var(--border-strong);
+        margin-bottom: 2rem;
+      }
+
+      .hero-badge-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--olive);
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(0.8);
+        }
+      }
+
+      h1 {
+        font-family: "Lora", serif;
+        font-size: clamp(2.1rem, 5vw, 3.6rem);
+        font-weight: 600;
+        color: var(--text-dark);
+        line-height: 1.2;
+        max-width: 680px;
+        margin-bottom: 1.4rem;
+      }
+
+      h1 em {
+        font-style: italic;
+        color: var(--olive);
+      }
+
+      .hero-subtitle {
+        font-size: clamp(1rem, 2vw, 1.15rem);
+        color: var(--text-mid);
+        max-width: 480px;
+        margin-bottom: 2.5rem;
+        font-weight: 300;
+        line-height: 1.8;
+      }
+
+      .hero-price {
+        font-family: "Lora", serif;
+        font-size: 1.05rem;
+        color: var(--text-muted);
+        margin-bottom: 0.6rem;
+      }
+
+      .hero-price strong {
+        font-size: 1.5rem;
+        color: var(--olive-dark);
+        font-weight: 600;
+      }
+
+      .btn-primary {
+        display: inline-block;
+        background: var(--olive);
+        color: #fff;
+        font-family: "DM Sans", sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 16px 40px;
+        border-radius: 100px;
+        text-decoration: none;
+        letter-spacing: 0.01em;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+        margin-top: 0.5rem;
+      }
+
+      .btn-primary:hover {
+        background: var(--olive-dark);
+        transform: translateY(-1px);
+      }
+
+      .hero-scroll-hint {
+        position: absolute;
+        bottom: 2.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        color: var(--text-muted);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.6;
+        animation: bob 2.5s ease-in-out infinite;
+      }
+
+      .scroll-arrow {
+        width: 1px;
+        height: 28px;
+        background: linear-gradient(to bottom, var(--text-muted), transparent);
+      }
+
+      @keyframes bob {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        50% {
+          transform: translateX(-50%) translateY(5px);
+        }
+      }
+
+      /* ── LAYOUT ── */
+      .section-wrap {
+        padding: 5rem 2rem;
+        max-width: 960px;
+        margin: 0 auto;
+      }
+
+      .divider {
+        width: 100%;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .section-label {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--olive);
+        margin-bottom: 1rem;
+      }
+
+      h2 {
+        font-family: "Lora", serif;
+        font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+        font-weight: 600;
+        color: var(--text-dark);
+        line-height: 1.25;
+        margin-bottom: 1.1rem;
+      }
+
+      h2 em {
+        font-style: italic;
+        color: var(--olive);
+      }
+
+      .section-intro {
+        font-size: 1.05rem;
+        color: var(--text-mid);
+        max-width: 540px;
+        line-height: 1.75;
+      }
+
+      /* ── BIO ── */
+      .bio-block {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .bio-photo {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: var(--olive-pale);
+        border: 3px solid var(--border-strong);
+        overflow: hidden;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .bio-photo-placeholder {
+        font-family: "Lora", serif;
+        font-size: 4rem;
+        color: var(--olive);
+        font-weight: 600;
+        font-style: italic;
+        line-height: 1;
+      }
+
+      .bio-content h3 {
+        font-family: "Lora", serif;
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin-bottom: 0.4rem;
+      }
+
+      .bio-crn {
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--olive);
+        margin-bottom: 1rem;
+      }
+
+      .bio-content p {
+        color: var(--text-mid);
+        line-height: 1.8;
+        font-size: 0.975rem;
+      }
+
+      /* ── INCLUDES (fixo 2x2 no desktop) ── */
+      .includes-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5px;
+        background: var(--border);
+        border: 1.5px solid var(--border);
+        border-radius: 16px;
+        overflow: hidden;
+        margin-top: 3rem;
+      }
+
+      .include-card {
+        background: var(--warm-white);
+        padding: 2rem 1.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .include-icon {
+        width: 36px;
+        height: 36px;
+        background: var(--olive-pale);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .include-icon svg {
+        width: 18px;
+        height: 18px;
+        stroke: var(--olive);
+        fill: none;
+        stroke-width: 1.75;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .include-title {
+        font-family: "Lora", serif;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        line-height: 1.3;
+      }
+
+      .include-desc {
+        font-size: 0.875rem;
+        color: var(--text-mid);
+        line-height: 1.65;
+      }
+
+      /* ── RDD ── */
+      .rdd-block {
+        background: var(--olive-dark);
+        border-radius: 20px;
+        padding: 3rem;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .rdd-block::before {
+        content: "RDD";
+        position: absolute;
+        right: -0.5rem;
+        bottom: -1rem;
+        font-family: "Lora", serif;
+        font-size: 9rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.06);
+        line-height: 1;
+        pointer-events: none;
+      }
+
+      .rdd-block .section-label {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .rdd-block h3 {
+        font-family: "Lora", serif;
+        font-size: 1.7rem;
+        font-weight: 600;
+        line-height: 1.25;
+        margin-bottom: 1rem;
+        max-width: 500px;
+      }
+
+      .rdd-block p {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.75);
+        max-width: 520px;
+        line-height: 1.75;
+      }
+
+      .rdd-foods {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 1.75rem;
+      }
+
+      .rdd-pill {
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 100px;
+        padding: 5px 14px;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      /* ── DEPOIMENTOS ── */
+      .testimonials-bg {
+        background: var(--olive-ultra);
+        padding: 5rem 2rem;
+      }
+      .testimonials-inner {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+        margin-top: 2.5rem;
+      }
+
+      .testimonial-card {
+        background: var(--warm-white);
+        border: 1px solid var(--border-strong);
+        border-radius: 16px;
+        padding: 1.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .testimonial-stars {
+        display: flex;
+        gap: 3px;
+      }
+
+      .star {
+        width: 14px;
+        height: 14px;
+        background: var(--olive);
+        clip-path: polygon(
+          50% 0%,
+          61% 35%,
+          98% 35%,
+          68% 57%,
+          79% 91%,
+          50% 70%,
+          21% 91%,
+          32% 57%,
+          2% 35%,
+          39% 35%
+        );
+      }
+
+      .testimonial-text {
+        font-family: "Lora", serif;
+        font-size: 1rem;
+        font-style: italic;
+        color: var(--text-dark);
+        line-height: 1.7;
+      }
+
+      .testimonial-author {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      /* ── PARA QUEM É ── */
+      .for-who-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+        margin-top: 2.5rem;
+      }
+
+      .for-who-card {
+        border-radius: 16px;
+        padding: 1.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .for-who-card.yes {
+        background: var(--olive-pale);
+        border: 1px solid var(--border-strong);
+      }
+      .for-who-card.no {
+        background: #faf8f8;
+        border: 1px solid rgba(180, 100, 80, 0.2);
+      }
+
+      .for-who-label {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .for-who-card.yes .for-who-label {
+        color: var(--olive);
+      }
+      .for-who-card.no .for-who-label {
+        color: #9b5b4a;
+      }
+
+      .for-who-title {
+        font-family: "Lora", serif;
+        font-size: 1.15rem;
+        font-weight: 600;
+        line-height: 1.3;
+      }
+      .for-who-card.yes .for-who-title {
+        color: var(--olive-dark);
+      }
+      .for-who-card.no .for-who-title {
+        color: #7a3a28;
+      }
+
+      .for-who-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .for-who-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 0.9rem;
+        line-height: 1.55;
+      }
+
+      .for-who-card.yes .for-who-list li {
+        color: var(--text-mid);
+      }
+      .for-who-card.no .for-who-list li {
+        color: #7a5048;
+      }
+
+      .fw-icon {
+        min-width: 16px;
+        font-size: 13px;
+        margin-top: 2px;
+      }
+
+      /* ── FAQ ── */
+      .faq-list {
+        margin-top: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border-strong);
+      }
+
+      .faq-item {
+        border-bottom: 1px solid var(--border);
+      }
+      .faq-item:last-child {
+        border-bottom: none;
+      }
+
+      .faq-q {
+        width: 100%;
+        background: var(--warm-white);
+        border: none;
+        padding: 1.1rem 1.5rem;
+        text-align: left;
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--text-dark);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        transition: background 0.15s;
+      }
+
+      .faq-q:hover {
+        background: var(--olive-ultra);
+      }
+
+      .faq-arrow {
+        width: 18px;
+        height: 18px;
+        min-width: 18px;
+        stroke: var(--olive);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transition: transform 0.25s;
+      }
+
+      .faq-item.open .faq-arrow {
+        transform: rotate(180deg);
+      }
+
+      .faq-a {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.3s ease,
+          padding 0.3s ease;
+        background: var(--warm-white);
+        font-size: 0.9rem;
+        color: var(--text-mid);
+        line-height: 1.75;
+        padding: 0 1.5rem;
+      }
+
+      .faq-item.open .faq-a {
+        max-height: 300px;
+        padding: 0 1.5rem 1.25rem;
+      }
+
+      /* ── PREÇO ── */
+      .price-section {
+        background: var(--warm-white);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        padding: 5rem 2rem;
+      }
+
+      .price-section-inner {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+
+      .price-card {
+        background: var(--cream);
+        border-radius: 20px;
+        border: 1.5px solid var(--border-strong);
+        padding: 2.5rem 2.5rem 2rem;
+        max-width: 480px;
+        margin: 2.5rem auto 0;
+      }
+
+      .price-card-label {
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--olive);
+        margin-bottom: 1rem;
+      }
+
+      .price-amount {
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+        margin-bottom: 0.4rem;
+      }
+      .price-x {
+        font-family: "DM Sans", sans-serif;
+        font-size: 1.2rem;
+        color: var(--text-muted);
+      }
+
+      .price-value {
+        font-family: "Lora", serif;
+        font-size: 3rem;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+
+      .price-period {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin-bottom: 1.75rem;
+      }
+      .price-divider {
+        height: 1px;
+        background: var(--border);
+        margin-bottom: 1.5rem;
+      }
+
+      .price-includes {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 2rem;
+      }
+
+      .price-includes li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.9rem;
+        color: var(--text-mid);
+      }
+
+      .check {
+        width: 18px;
+        height: 18px;
+        min-width: 18px;
+        border-radius: 50%;
+        background: var(--olive-pale);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2px;
+      }
+
+      .check svg {
+        width: 10px;
+        height: 10px;
+        stroke: var(--olive);
+        fill: none;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .btn-primary-full {
+        display: block;
+        background: var(--olive);
+        color: #fff;
+        font-family: "DM Sans", sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 16px 24px;
+        border-radius: 12px;
+        text-decoration: none;
+        text-align: center;
+        letter-spacing: 0.01em;
+        transition: background 0.2s;
+      }
+
+      .btn-primary-full:hover {
+        background: var(--olive-dark);
+      }
+
+      .price-note {
+        text-align: center;
+        font-size: 12px;
+        color: var(--text-muted);
+        margin-top: 1rem;
+      }
+
+      /* ── FINAL CTA ── */
+      .final-cta {
+        text-align: center;
+        padding: 6rem 2rem;
+        background: var(--olive-dark);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .final-cta::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 70% 60% at 50% 120%,
+          rgba(255, 255, 255, 0.06) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .final-cta h2 {
+        color: #fff;
+        max-width: 560px;
+        margin: 0 auto 1.25rem;
+      }
+      .final-cta h2 em {
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .final-cta p {
+        color: rgba(255, 255, 255, 0.65);
+        max-width: 420px;
+        margin: 0 auto 2.5rem;
+        line-height: 1.75;
+      }
+
+      .btn-primary-light {
+        display: inline-block;
+        background: #fff;
+        color: var(--olive-dark);
+        font-family: "DM Sans", sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 16px 40px;
+        border-radius: 100px;
+        text-decoration: none;
+        letter-spacing: 0.01em;
+        transition:
+          opacity 0.2s,
+          transform 0.15s;
+      }
+
+      .btn-primary-light:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 1.75rem 2rem;
+        text-align: center;
+        font-size: 12px;
+        color: var(--text-muted);
+        background: var(--cream);
+      }
+
+      /* ── MOBILE ── */
+      @media (max-width: 640px) {
+        .includes-grid {
+          grid-template-columns: 1fr;
+        }
+        .testimonials-grid {
+          grid-template-columns: 1fr;
+        }
+        .for-who-grid {
+          grid-template-columns: 1fr;
+        }
+        .bio-block {
+          grid-template-columns: 1fr;
+          justify-items: center;
+          text-align: center;
+        }
+        .bio-photo {
+          width: 140px;
+          height: 140px;
+        }
+        .rdd-block {
+          padding: 2rem 1.5rem;
+        }
+        .rdd-block::before {
+          font-size: 5rem;
+        }
+        .price-card {
+          padding: 1.75rem 1.5rem;
+        }
+      }
+
+      /* ── FADE IN ── */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        Consultoria nutricional
+      </div>
+      <h1>Seja bem-vinda ao início da sua <em>transformação de vida</em></h1>
+      <p class="hero-subtitle">
+        Um acompanhamento feito pra você de verdade — levando em conta sua
+        rotina, suas preferências e o que você vive fora da dieta também.
+      </p>
+      <p class="hero-price">
+        3 meses de acompanhamento por <strong>3x de R$199</strong>
+      </p>
+      <a href="#formulario" class="btn-primary">Quero me inscrever</a>
+      <div class="hero-scroll-hint">
+        <div class="scroll-arrow"></div>
+        Saiba mais
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- O QUE INCLUI -->
+    <div class="section-wrap" id="inclui">
+      <p class="section-label fade-up">O que você recebe</p>
+      <h2 class="fade-up">
+        Tudo que você precisa para <em>chegar lá</em> sem abrir mão da sua vida
+      </h2>
+      <p class="section-intro fade-up">
+        Não é uma dieta genérica. É um planejamento construído ao redor de quem
+        você é.
+      </p>
+
+      <div class="includes-grid fade-up">
+        <div class="include-card">
+          <div class="include-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+              />
+            </svg>
+          </div>
+          <p class="include-title">Planejamento alimentar individualizado</p>
+          <p class="include-desc">
+            Montado por mim, com cardápio separado pra semana e final de semana,
+            diversas opções de troca e baseado na sua rotina real — incluindo
+            interferências emocionais.
+          </p>
+        </div>
+
+        <div class="include-card">
+          <div class="include-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 6h16M4 10h16M4 14h10M4 18h6" />
+            </svg>
+          </div>
+          <p class="include-title">+20 listas de orientações personalizadas</p>
+          <p class="include-desc">
+            Como beber água, como se organizar na semana, como usar suplementos,
+            alimentos a evitar e muito mais — tudo explicado de forma prática.
+          </p>
+        </div>
+
+        <div class="include-card">
+          <div class="include-icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 7v5l3 3" />
+            </svg>
+          </div>
+          <p class="include-title">Método RDD completo</p>
+          <p class="include-desc">
+            Material completo de Redução de Danos: como sair da dieta sem culpa
+            e voltar ao trilho. Pizza, hambúrguer, açaí, churrasco — a vida não
+            para, e a gente sabe disso.
+          </p>
+        </div>
+
+        <div class="include-card">
+          <div class="include-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 3v18h18M7 16l4-4 4 4 5-5" />
+            </svg>
+          </div>
+          <p class="include-title">Análises mensais</p>
+          <p class="include-desc">
+            A cada mês, identificamos juntas o que funcionou, o que travou e
+            reformulamos o que for necessário. Você nunca vai ficar estagnada
+            sem saber o que fazer.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RDD -->
+    <div class="section-wrap" style="padding-top: 0">
+      <div class="rdd-block fade-up">
+        <p class="section-label">Método exclusivo</p>
+        <h3>Aprenda a comer tudo isso sem sabotar seu objetivo</h3>
+        <p>
+          O Método RDD (Redução de Danos) é o que diferencia um plano que
+          funciona na vida real de um que só funciona no papel. Você recebe o
+          material completo e aprende a navegar nas situações do dia a dia sem
+          culpa e sem perder o rumo.
+        </p>
+        <div class="rdd-foods">
+          <span class="rdd-pill">Pizza</span>
+          <span class="rdd-pill">Hambúrguer</span>
+          <span class="rdd-pill">Sushi</span>
+          <span class="rdd-pill">Bebida alcoólica</span>
+          <span class="rdd-pill">Açaí</span>
+          <span class="rdd-pill">Doces e sobremesas</span>
+          <span class="rdd-pill">Churrasco</span>
+          <span class="rdd-pill">E muito mais</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- PARA QUEM É -->
+    <div class="section-wrap">
+      <p class="section-label fade-up">Fit perfeito</p>
+      <h2 class="fade-up">Essa consultoria é <em>pra você?</em></h2>
+      <div class="for-who-grid fade-up">
+        <div class="for-who-card yes">
+          <p class="for-who-label">Sim, é pra você se...</p>
+          <p class="for-who-title">Você se identifica com algum desses:</p>
+          <ul class="for-who-list">
+            <li>
+              <span class="fw-icon">✓</span> Cansa de dietas que funcionam por 2
+              semanas e somem
+            </li>
+            <li>
+              <span class="fw-icon">✓</span> Tem culpa quando sai do plano no
+              fim de semana
+            </li>
+            <li>
+              <span class="fw-icon">✓</span> Quer emagrecer mas não consegue
+              abrir mão da vida social
+            </li>
+            <li>
+              <span class="fw-icon">✓</span> Já tentou outros planos e quer algo
+              personalizado de verdade
+            </li>
+            <li>
+              <span class="fw-icon">✓</span> Quer um acompanhamento que evolua
+              com você mês a mês
+            </li>
+          </ul>
+        </div>
+        <div class="for-who-card no">
+          <p class="for-who-label">Não é pra você se...</p>
+          <p class="for-who-title">Esse perfil não vai funcionar bem:</p>
+          <ul class="for-who-list">
+            <li>
+              <span class="fw-icon">✗</span> Está buscando resultado expresso
+              sem comprometimento
+            </li>
+            <li>
+              <span class="fw-icon">✗</span> Não vai fornecer as informações
+              necessárias para o plano
+            </li>
+            <li>
+              <span class="fw-icon">✗</span> Quer apenas um cardápio pronto, sem
+              acompanhamento
+            </li>
+            <li>
+              <span class="fw-icon">✗</span> Tem condição clínica que exige
+              tratamento médico específico
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- PREÇO -->
+    <div class="price-section" id="formulario">
+      <div class="price-section-inner">
+        <p class="section-label fade-up" style="text-align: center">
+          Investimento
+        </p>
+        <h2
+          class="fade-up"
+          style="text-align: center; max-width: 480px; margin: 0 auto"
+        >
+          Tudo isso por um valor que <em>cabe na sua realidade</em>
+        </h2>
+        <div class="price-card fade-up">
+          <p class="price-card-label">Consultoria nutricional · 3 meses</p>
+          <div class="price-amount">
+            <span class="price-x">3x de</span>
+            <span class="price-value">R$199</span>
+          </div>
+          <p class="price-period">3 meses de acompanhamento completo</p>
+          <div class="price-divider"></div>
+          <ul class="price-includes">
+            <li>
+              <div class="check">
+                <svg viewBox="0 0 12 12">
+                  <polyline points="2,6 5,9 10,3" />
+                </svg>
+              </div>
+              Planejamento alimentar individualizado (semana + fim de semana)
+            </li>
+            <li>
+              <div class="check">
+                <svg viewBox="0 0 12 12">
+                  <polyline points="2,6 5,9 10,3" />
+                </svg>
+              </div>
+              +20 listas de orientações personalizadas
+            </li>
+            <li>
+              <div class="check">
+                <svg viewBox="0 0 12 12">
+                  <polyline points="2,6 5,9 10,3" />
+                </svg>
+              </div>
+              Acesso completo ao Método RDD
+            </li>
+            <li>
+              <div class="check">
+                <svg viewBox="0 0 12 12">
+                  <polyline points="2,6 5,9 10,3" />
+                </svg>
+              </div>
+              Análises mensais com ajustes e reformulações
+            </li>
+          </ul>
+          <a
+            href="https://leadix.app/form/victoria-lira-9"
+            class="btn-primary-full form-link"
+            >Preencher formulário e começar</a
+          >
+          <p class="price-note">
+            Ao clicar, você será levada ao formulário de inscrição.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="section-wrap">
+      <p class="section-label fade-up">Dúvidas frequentes</p>
+      <h2 class="fade-up">Antes de começar, <em>algumas respostas</em></h2>
+      <div class="faq-list fade-up">
+        <div class="faq-item">
+          <button class="faq-q">
+            Como funciona o início da consultoria?
+            <svg class="faq-arrow" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-a">
+            Após preencher o formulário, você receberá o contato da Victória
+            para dar início ao processo. Ela coletará suas informações, rotina,
+            preferências e objetivos antes de montar o planejamento
+            personalizado.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            O plano alimentar é realmente individualizado?
+            <svg class="faq-arrow" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-a">
+            Sim. Não é um cardápio genérico. Ele é montado com base nas
+            informações que você fornece: sua rotina, seus horários, seus
+            alimentos favoritos, suas restrições e até suas interferências
+            emocionais com a comida.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            O que acontece se eu sair da dieta?
+            <svg class="faq-arrow" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-a">
+            É exatamente pra isso que existe o Método RDD. Você vai aprender a
+            sair da dieta de forma consciente e a retomar sem culpa. Não existe
+            "arruinar tudo" — existe estratégia.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            Por quanto tempo dura a consultoria?
+            <svg class="faq-arrow" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-a">
+            São 3 meses de acompanhamento completo, com análises mensais para
+            ajuste do plano. O investimento é de 3x de R$199.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            Consigo resultados mesmo tendo uma rotina agitada?
+            <svg class="faq-arrow" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-a">
+            Sim, e é justamente para esse perfil que essa consultoria foi
+            pensada. A rotina agitada é levada em conta no planejamento — não
+            ignorada.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINAL CTA -->
+    <div class="final-cta">
+      <h2>Você não precisa ser perfeita. <em>Precisa começar.</em></h2>
+      <p>
+        O plano se adapta a você — não ao contrário. Se você está de acordo com
+        o preço e quer dar esse passo, o formulário está te esperando.
+      </p>
+      <a
+        href="https://leadix.app/form/victoria-lira-9"
+        class="btn-primary-light form-link"
+        >Quero começar agora</a
+      >
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      © 2025 Victória Lira · Nutricionista CRN — Todos os direitos reservados
+    </footer>
+
+    <script>
+      const BASE = "https://leadix.app/form/victoria-lira-9";
+      function buildFormUrl() {
+        const p = new URLSearchParams(window.location.search);
+        const keys = [
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "fbclid",
+          "gclid",
+          "ref",
+        ];
+        const out = new URLSearchParams();
+        keys.forEach((k) => {
+          if (p.has(k)) out.set(k, p.get(k));
+        });
+        const qs = out.toString();
+        return qs ? BASE + "?" + qs : BASE;
+      }
+      document
+        .querySelectorAll(".form-link")
+        .forEach((a) => (a.href = buildFormUrl()));
+
+      document.querySelectorAll(".faq-q").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const item = btn.closest(".faq-item");
+          const isOpen = item.classList.contains("open");
+          document
+            .querySelectorAll(".faq-item")
+            .forEach((i) => i.classList.remove("open"));
+          if (!isOpen) item.classList.add("open");
+        });
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+      document
+        .querySelectorAll(".fade-up")
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
