@@ -461,6 +461,36 @@ h2 em {
   font-weight: 500;
 }
 
+/* ── MID CTA ── */
+.mid-cta {
+  background: var(--olive-pale);
+  border-top: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.mid-cta-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.mid-cta-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--olive-dark);
+  line-height: 1.5;
+  max-width: 480px;
+}
+
+.mid-cta .btn-primary {
+  white-space: nowrap;
+}
+
 /* ── PARA QUEM É ── */
 .for-who-grid {
   display: grid;
@@ -1070,6 +1100,169 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* ── DEPOIMENTOS ── */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.testimonial-card {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 2px 12px rgba(102, 110, 60, 0.06);
+  transition: box-shadow 0.2s ease;
+}
+
+.testimonial-card:hover {
+  box-shadow: 0 6px 24px rgba(102, 110, 60, 0.12);
+}
+
+.testimonial-quote {
+  font-family: "Lora", serif;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--olive-light);
+  margin-bottom: -0.5rem;
+}
+
+.testimonial-text {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-mid);
+  flex: 1;
+}
+
+
+@media (max-width: 640px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.google-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.google-banner:hover .google-arrow {
+  transform: translateX(3px);
+}
+
+/* ── GOOGLE BANNER ── */
+.google-banner {
+  display: block;
+  position: relative;
+  margin: 2rem auto 0;
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  max-width: 680px;
+  height: 200px;
+  transition: box-shadow 0.2s ease;
+}
+
+.google-banner:hover {
+  box-shadow: 0 8px 32px rgba(102, 110, 60, 0.2);
+}
+
+.google-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+  display: block;
+}
+
+.google-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(30, 33, 15, 0.75) 0%,
+    rgba(30, 33, 15, 0.45) 60%,
+    rgba(30, 33, 15, 0.2) 100%
+  );
+}
+
+.google-banner-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0 2rem;
+}
+
+.google-banner-rating {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.google-banner-score {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1;
+  font-family: "Lora", serif;
+}
+
+.google-banner-stars {
+  color: #f4a500;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.google-banner-count {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.75);
+}
+
+.google-banner-cta {
+  margin-left: auto;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #fff;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 50px;
+  padding: 0.6rem 1.25rem;
+  white-space: nowrap;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s ease;
+}
+
+.google-banner:hover .google-banner-cta {
+  background: rgba(255,255,255,0.25);
+}
+
+@media (max-width: 560px) {
+  .google-banner {
+    height: 160px;
+  }
+
+  .google-banner-content {
+    padding: 0 1.25rem;
+    gap: 0.75rem;
+  }
+
+  .google-banner-score {
+    font-size: 1.5rem;
+  }
+
+  .google-banner-cta {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+  }
 }
 
 /* ── FADE IN ── */
