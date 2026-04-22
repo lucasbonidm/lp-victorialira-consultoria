@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:intl-tel-input.com)",
+      "WebSearch",
+      "WebFetch(domain:www.npmjs.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -s \"https://raw.githubusercontent.com/jackocnr/intl-tel-input/master/src/js/intlTelInput.ts\")",
+      "Bash(curl -s \"https://api.github.com/repos/jackocnr/intl-tel-input/contents/examples\")",
+      "Bash(python3 -c \"import json,sys; [print\\(x['name']\\) for x in json.load\\(sys.stdin\\) if isinstance\\(x, dict\\)]\")",
+      "Bash(curl -s \"https://api.github.com/repos/jackocnr/intl-tel-input/contents/\")",
+      "Bash(python3 -c \"import json,sys; [print\\(x['name']\\) for x in json.load\\(sys.stdin\\)]\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/jackocnr/intl-tel-input/master/src/js/core/options.ts\")"
+    ]
+  }
+}
